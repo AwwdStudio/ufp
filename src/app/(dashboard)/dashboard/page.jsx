@@ -22,9 +22,12 @@ import {
 } from '@//loading/Loading';
 
 import { Trophy, Users, Calendar, Bell, TrendingUp, Fire, Target, Play, Flame } from 'lucide-react';
+import {redirect} from "next/navigation";
 
 const ExploreDashboard = async () => {
     const user = await getLoggedInUser()
+
+    if(!user) redirect('/')
 
     const quickStats = [
         {
