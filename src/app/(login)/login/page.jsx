@@ -182,7 +182,7 @@ export default function LoginPage() {
 
                             <div className="text-center mt-6">
                                 <p className="text-sm text-zinc-400">
-                                    Don't have an account?{' '}
+                                    Do not have an account?
                                     <button
                                         type="button"
                                         onClick={() => router.push('/register')}
