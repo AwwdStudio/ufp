@@ -143,7 +143,7 @@ const Header = ({user}) => {
                                 >
                                     Discover
                                 </Link>
-                                {['Events', 'Rankings', 'Organizations'].map((item) => (
+                                {['Events'].map((item) => (
                                     <Link href={`/${item.toLowerCase()}`}
                                         key={item}
                                         variant="ghost"
