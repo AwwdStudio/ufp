@@ -24,7 +24,6 @@ const UserProfilePage = async () => {
     console.log(user);
     console.log(profile, "from profile page");
 
-    if (!user) redirect('/')
 
     return (
         <>

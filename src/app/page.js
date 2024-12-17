@@ -13,7 +13,7 @@ export default async function Home() {
         const location_data = await detectUserLocation(user);
 
         // Only redirect if we're sure we have a valid user session
-        if (user?.userId) {
+        if (user) {
             redirect('/profile');
             return null; // Important to return null after redirect
         }
