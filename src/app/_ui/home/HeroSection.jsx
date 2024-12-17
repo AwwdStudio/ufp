@@ -65,7 +65,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* Main Content */}
-                <div className="max-w-[1800px] mx-auto px-4 relative">
+                <div className="max-w-[1800px] mx-auto  relative">
                     <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
                         {/* Left Column - Main Content */}
                         <div className="space-y-8">
