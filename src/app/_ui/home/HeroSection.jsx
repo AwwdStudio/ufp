@@ -54,7 +54,7 @@ const HeroSection = () => {
 
     return (
         <>
-            <div className="min-h-screen bg-zinc-900 relative overflow-hidden pt-40 lg:pt-60 mt-5 no-scrollbar px-5  border-b border-b-zinc-800">
+            <div className="min-h-screen bg-zinc-900 relative overflow-hidden pt-20  lg:pt-40 mt-5 no-scrollbar px-5  border-b border-b-zinc-800">
                 {/* Background Elements - Adjusted to match header */}
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-900"/>
@@ -65,7 +65,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* Main Content */}
-                <div className="max-w-[1800px] mx-auto  relative">
+                <div className="max-w-[1800px] mx-auto relative">
                     <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
                         {/* Left Column - Main Content */}
                         <div className="space-y-8">
