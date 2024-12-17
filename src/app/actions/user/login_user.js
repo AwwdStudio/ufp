@@ -5,50 +5,49 @@ import {cookies} from "next/headers";
 
 export async function loginWithEmailAndPassword(formData) {
     try {
-        // Extract form fields
         const email = formData.get("email");
         const password = formData.get("password");
         const rememberMe = formData.get("remember-me") === "on";
 
-        // Create admin client first to attempt login
         const {account} = await createAdminClient();
 
         try {
-            // Attempt to create session first
             const session = await account.createEmailPasswordSession(email, password);
 
-            // Set cookies with conditional expiration based on remember me
+            // Modified cookie settings for better mobile compatibility
             const cookieStore = cookies();
             await cookieStore.set("session", session.secret, {
                 path: "/",
                 httpOnly: true,
-                sameSite: "strict",
-                secure: true,
-                maxAge: rememberMe ? 30 * 24 * 60 * 60 : undefined // 30 days if remember me is checked
+                sameSite: "lax", // Changed from strict to lax for better mobile support
+                secure: process.env.NODE_ENV === 'production', // Only secure in production
+                maxAge: rememberMe ? 30 * 24 * 60 * 60 : 24 * 60 * 60 // Default 24 hours if not remembered
             });
 
-            // Return success response
             return {
                 success: true,
                 session: session,
             };
 
         } catch (authError) {
-            // Handle authentication errors specifically
+            console.error("Auth error:", authError);
             if (authError.code === 401) {
                 return {
                     success: false,
                     error: 'Invalid email or password'
                 };
             }
-            return authError; // Re-throw if it's not a 401
+            return {
+                success: false,
+                error: 'Authentication failed'
+            };
         }
 
     } catch (error) {
         console.error("Login error:", error);
         return {
             success: false,
-            error: error.message || 'An unexpected error occurred during login'
+            error: 'An unexpected error occurred during login'
         };
     }
 }
