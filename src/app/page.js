@@ -17,27 +17,27 @@ export default async function Home() {
 
     if (user) redirect('/profile');
 
-    if (location_data?.ipRegistry?.security) {
-        const security_validation = validateSecurityStatus(location_data.ipRegistry.security);
-
-        if (!security_validation.allowed) {
-            return (
-                <div>
-                    <Card className="w-full max-w-7xl mx-auto">
-                        <CardContent className="pt-6">
-                            <div className="space-y-4">
-                                <div className="h-4 bg-muted rounded w-3/4 animate-pulse"/>
-                                <div className="space-y-3">
-                                    <div className="h-4 bg-muted rounded animate-pulse"/>
-                                    <div className="h-4 bg-muted rounded animate-pulse"/>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
-            )
-        }
-    }
+    // if (location_data?.ipRegistry?.security) {
+    //     const security_validation = validateSecurityStatus(location_data.ipRegistry.security);
+    //
+    //     if (!security_validation.allowed) {
+    //         return (
+    //             <div>
+    //                 <Card className="w-full max-w-7xl mx-auto">
+    //                     <CardContent className="pt-6">
+    //                         <div className="space-y-4">
+    //                             <div className="h-4 bg-muted rounded w-3/4 animate-pulse"/>
+    //                             <div className="space-y-3">
+    //                                 <div className="h-4 bg-muted rounded animate-pulse"/>
+    //                                 <div className="h-4 bg-muted rounded animate-pulse"/>
+    //                             </div>
+    //                         </div>
+    //                     </CardContent>
+    //                 </Card>
+    //             </div>
+    //         )
+    //     }
+    // }
 
     console.log("User from home", user,);
     console.log("Location from home", location_data);
