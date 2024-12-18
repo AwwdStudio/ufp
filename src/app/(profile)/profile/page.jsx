@@ -1,5 +1,5 @@
 import React from 'react';
-// import {getLoggedInUser} from "@/app/actions/user/get_user_session";
+import {getLoggedInUser} from "@/app/actions/user/get_user_session";
 // import {getUserProfile} from "@/app/actions/user/get_user_profile";
 import {redirect} from "next/navigation";
 import {Suspense} from "react";
@@ -34,18 +34,8 @@ const ProfileSkeleton = () => (
 
 const UserProfilePage = async () => {
     try {
-        // const user = await getLoggedInUser();
-        //
-        //
-        // // Fetch profile data after confirming user is logged in
-        // const profile = await getUserProfile();
-        //
-        // if (!profile) {
-        //     // Handle missing profile data
-        //     // You might want to redirect to a profile setup page
-        //     redirect('/profile/setup');
-        //     return null;
-        // }
+        const user = await getLoggedInUser();
+
 
         return (
             <>
